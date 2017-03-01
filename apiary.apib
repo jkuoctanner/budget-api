@@ -2,7 +2,7 @@ FORMAT: 1A
 
 # Budget API
 
-The Budget API allows a client application to create, retrieve, and update budgets belonging to a company.
+The Budget API has operations to create, retrieve, and update budgets belonging to a program.
 
 ## Get Points Issued [/budgets/{budgetId}/issued]
 
@@ -24,7 +24,7 @@ Returns the number of points issued from a given budget.
 
 ## Create Budget [/budgets]
 
-Creates a new budget for a client.
+Creates a new budget for a program.
 
 ### Create Budget [POST]
 
@@ -32,7 +32,7 @@ Creates a new budget for a client.
 
     + Attributes
 
-        + clientId `8a28cf7f-fa9e-44e9-ab3c-36f3086f4ad6` (string, required) - The client ID of the customer company.
+        + programId `8a28cf7f-fa9e-44e9-ab3c-36f3086f4ad6` (string, required) - The program ID of the customer company.
         + ownerId `ea8ca890-cf1e-491b-b588-7b2677aba124` (string, required) - The user ID of the owner of the budget.
         + points: 100000 (number, required) - The number of points in this budget.
         + startDate: `2017-01-01` (string, required) - Effective start date of the budget in ISO 8601 format.
@@ -41,7 +41,7 @@ Creates a new budget for a client.
     + Body
     
             {
-                "clientId": "8a28cf7f-fa9e-44e9-ab3c-36f3086f4ad6",
+                "programId": "8a28cf7f-fa9e-44e9-ab3c-36f3086f4ad6",
                 "ownerId": "ea8ca890-cf1e-491b-b588-7b2677aba124",
                 "points": 100000,
                 "startDate": "2017-01-01",
@@ -68,16 +68,16 @@ Creates a new budget for a client.
     
         + errors (array[Error])
 
-## Get Budgets [/budgets?clientId={clientId}]
+## Get Budgets [/budgets?programId={programId}]
 
-Retrieves a list of budgets for a given client ordered by start date.
+Retrieves a list of budgets for a given program ordered by start date.
 
 ### Get Budgets [GET]
 
-Retrieves a list of budgets for a given client ordered by start date.
+Retrieves a list of budgets for a given program ordered by start date.
 
 + Parameters
-    + clientId: `8a28cf7f-fa9e-44e9-ab3c-36f3086f4ad6` (string, required) - The client ID of the customer company.
+    + programId: `8a28cf7f-fa9e-44e9-ab3c-36f3086f4ad6` (string, required) - The program ID of the customer company.
 
 + Response 200 (application/json)
 
@@ -117,7 +117,7 @@ Retrieves a list of budgets for a given client ordered by start date.
 
 ### Get Budget [GET]
 
-Retrieves a budget for a client.
+Retrieves a budget for a program.
 
 + Parameters
     + id: `d022eef6-79aa-4938-872e-d0ff5bb92b6e` (string, required) - The ID of the budget to retrieve.
@@ -140,7 +140,7 @@ Retrieves a budget for a client.
 
 ### Update Budget [PATCH]
 
-Updates a budget for a client.
+Updates a budget for a program.
 
 + Parameters
     + id: `d022eef6-79aa-4938-872e-d0ff5bb92b6e` (string, required) - The ID of the budget to update.
@@ -271,7 +271,7 @@ Adjust the budget and mark points as released.
 
 # Budget (object)
 - id: `d022eef6-79aa-4938-872e-d0ff5bb92b6e` (string) - The ID of this budget.
-- clientId: `8a28cf7f-fa9e-44e9-ab3c-36f3086f4ad6` (string) - The client ID of the customer company.
+- programId: `8a28cf7f-fa9e-44e9-ab3c-36f3086f4ad6` (string) - The program ID of the customer company.
 - ownerId: `ea8ca890-cf1e-491b-b588-7b2677aba124` (string) - The user ID of the owner of the budget.
 - points: 100000 (number) - The number of points in this budget.
 - startDate: `2017-01-01` (string) - Effective start date of the budget in ISO 8601 format.
